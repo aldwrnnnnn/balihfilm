@@ -1,5 +1,9 @@
 # Balih Film
 
+> **Karya Cipta & Portofolio Eksklusif**  
+> Dibuat dan dikembangkan oleh **[I Gede Aldi Irawan](https://github.com/aldwrnnnnn)** (@aldwrnnnnn).  
+> Seluruh hak cipta dilindungi undang-undang (All Rights Reserved).
+
 Aplikasi web pemesanan tiket bioskop online modern berbasis **Laravel 13** dan **Tailwind CSS v4**. Balih Film menyediakan alur pemesanan tiket lengkap mulai dari katalog film, pemilihan jadwal dan tipe studio, denah kursi interaktif, pemesanan makanan dan minuman (concessions), hingga penerbitan e-ticket digital lengkap dengan barcode.
 
 ---
@@ -115,6 +119,26 @@ Cakupan pengujian meliputi:
 
 ---
 
-## Lisensi
+## Pembuat & Hak Cipta (Author & Copyright)
 
-Proyek ini dirilis di bawah lisensi [MIT License](LICENSE).
+Proyek ini dirancang dan dibangun secara mandiri oleh:
+
+- **Pengembang**: [I Gede Aldi Irawan](https://github.com/aldwrnnnnn)
+- **GitHub**: [@aldwrnnnnn](https://github.com/aldwrnnnnn)
+- **Portofolio**: [aldiirawanporto.vercel.app](https://aldiirawanporto.vercel.app)
+- **Email**: [gedealdiirawan5@gmail.com](mailto:gedealdiirawan5@gmail.com)
+
+---
+
+## Lisensi & Ketentuan Penggunaan
+
+Proyek ini dilindungi oleh lisensi eksklusif **All Rights Reserved** (Hak Cipta Dilindungi Undang-Undang).
+
+- **Hak Cipta (c) 2026 I Gede Aldi Irawan (@aldwrnnnnn)**.
+- Seluruh kode sumber, desain UI/UX, dan aset di dalam repositori ini dipublikasikan untuk keperluan **peninjauan portofolio dan referensi pribadi**.
+- **Dilarang keras**:
+  - Mengambil, menyalin, memodifikasi, atau mendistribusikan ulang kode ini untuk diakui sebagai karya orang lain (plagiarisme).
+  - Menggunakan kode ini untuk kepentingan komersial atau aplikasi produksi tanpa izin tertulis dari pemegang hak cipta.
+  - Menghapus watermark, kredit pengembang, atau identitas hak cipta asli.
+
+Detail ketentuan lengkap dapat dibaca pada berkas [LICENSE](LICENSE).

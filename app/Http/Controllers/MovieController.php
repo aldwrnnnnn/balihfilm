@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Balih Film - Modern Cinema Booking System
+ *
+ * @author    I Gede Aldi Irawan <gedealdiirawan5@gmail.com>
+ * @copyright 2026 I Gede Aldi Irawan (https://github.com/aldwrnnnnn)
+ * @license   All Rights Reserved / Proprietary
+ */
+
 namespace App\Http\Controllers;
 
 use App\Models\Movie;

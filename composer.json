@@ -1,10 +1,17 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "aldwrnnnnn/balihfilm",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
-    "license": "MIT",
+    "description": "Balih Film - Modern Cinema Booking System",
+    "keywords": ["laravel", "cinema", "booking", "balihfilm"],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "I Gede Aldi Irawan",
+            "email": "gedealdiirawan5@gmail.com",
+            "homepage": "https://github.com/aldwrnnnnn"
+        }
+    ],
     "require": {
         "php": "^8.3",
         "laravel/framework": "^13.17",
