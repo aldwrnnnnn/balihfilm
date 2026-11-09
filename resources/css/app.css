@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --color-burgundy-950: #20040A;
+    --color-burgundy-900: #350812;
+    --color-burgundy-800: #4B0C1A;
+    --color-burgundy-700: #641225;
+    --color-burgundy-600: #7E1B31;
+    --color-burgundy-500: #9E2640;
+
+    --color-cream-50: #FFFDF9;
+    --color-cream-100: #FAF6F0;
+    --color-cream-200: #F3EBE0;
+    --color-cream-300: #E5D9C7;
+    --color-cream-400: #D3C2AB;
+    --color-cream-500: #BAA386;
+
+    --color-charcoal: #2B1D20;
+}
+
+@layer base {
+    body {
+        font-family: var(--font-sans);
+        background-color: var(--color-cream-100);
+        color: var(--color-charcoal);
+    }
+
+    h1, h2, h3, .font-cinema {
+        font-family: var(--font-serif);
+    }
+}
+
+/* Custom Cinema Screen Curve */
+.cinema-screen {
+    position: relative;
+    border-top: 4px solid #C49F6A;
+    border-radius: 50% 50% 0 0 / 12px 12px 0 0;
+    box-shadow: 0 -8px 20px -6px rgba(196, 159, 106, 0.4);
+}
+
+/* Custom Cinema Themed Scrollbar */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #4B0C1A #FAF6F0;
+}
+
+/* Chromium / WebKit (Chrome, Edge, Safari, Brave, Opera) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FAF6F0;
+    border-left: 1px solid #E5D9C7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4B0C1A 0%, #350812 100%);
+    border-radius: 9999px;
+    border: 2px solid #FAF6F0;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #7E1B31 0%, #4B0C1A 100%);
+    border-color: #F3EBE0;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #20040A;
+}
+
+::-webkit-scrollbar-corner {
+    background: #FAF6F0;
+}
+
+/* Inner scrollable panels (seat selection, tabs, concessions) */
+.custom-scrollbar,
+.overflow-x-auto,
+.overflow-y-auto {
+    scrollbar-width: thin;
+    scrollbar-color: #7E1B31 rgba(75, 12, 26, 0.08);
+}
+
+.custom-scrollbar::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track,
+.overflow-x-auto::-webkit-scrollbar-track,
+.overflow-y-auto::-webkit-scrollbar-track {
+    background: rgba(75, 12, 26, 0.04);
+    border-radius: 9999px;
+    border: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-thumb {
+    background: #7E1B31;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover,
+.overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: #4B0C1A;
+}
+
+/* Barcode Simulation Pattern */
+.barcode-lines {
+    background: repeating-linear-gradient(
+        90deg,
+        #20040A,
+        #20040A 2px,
+        transparent 2px,
+        transparent 4px,
+        #20040A 4px,
+        #20040A 7px,
+        transparent 7px,
+        transparent 9px,
+        #20040A 9px,
+        #20040A 13px,
+        transparent 13px,
+        transparent 15px
+    );
+}
+
+/* Ticket perforated edge effect */
+.ticket-perforation-left {
+    position: absolute;
+    left: -12px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-cream-100);
+    border-radius: 9999px;
+    border-right: 1px dashed var(--color-cream-300);
+}
+
+.ticket-perforation-right {
+    position: absolute;
+    right: -12px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-cream-100);
+    border-radius: 9999px;
+    border-left: 1px dashed var(--color-cream-300);
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    .print-full {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}
