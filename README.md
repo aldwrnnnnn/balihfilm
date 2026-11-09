@@ -1,58 +1,120 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Balih Film
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web pemesanan tiket bioskop online modern berbasis **Laravel 13** dan **Tailwind CSS v4**. Balih Film menyediakan alur pemesanan tiket lengkap mulai dari katalog film, pemilihan jadwal dan tipe studio, denah kursi interaktif, pemesanan makanan dan minuman (concessions), hingga penerbitan e-ticket digital lengkap dengan barcode.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Katalog Film (Now Playing & Upcoming)**:
+  - Daftar film yang sedang tayang dan segera tayang.
+  - Halaman detail film dengan sinopsis, genre, durasi, batasan usia (rating), daftar pemeran, sutradara, dan tautan trailer.
+- **Jadwal Tayang & Multi-Studio**:
+  - Filter jadwal tayang berdasarkan tanggal.
+  - Mendukung berbagai kategori studio bioskop: *Dolby Atmos*, *Regular Classic*, dan *VIP Premiere Lounge* dengan penyesuaian biaya studio.
+- **Denah Kursi Interaktif (Interactive Seat Selection)**:
+  - Visualisasi tata letak kursi per studio (misal baris A-F kolom 1-8).
+  - Indikator status kursi: tersedia, terpilih, atau sudah terisi (booked).
+  - Validasi ketat untuk mencegah *double booking* dan batas maksimal kursi per transaksi.
+- **Pemesanan Makanan & Minuman (Concessions)**:
+  - Pilihan makanan ringan (Popcorn Caramel, Butter, Nachos, French Fries) dan minuman dingin, serta paket combo hemat.
+  - Perhitungan subtotal otomatis tergabung ke dalam rincian pembayaran.
+- **Pembayaran & E-Ticket Digital**:
+  - Pilihan metode pembayaran (QRIS, Transfer Bank / Virtual Account).
+  - Pembuatan kode booking unik (contoh: `BF-202610-XXXX`) dan barcode tiket untuk verifikasi saat masuk studio.
+- **Pencarian Tiket (Ticket Lookup)**:
+  - Halaman cek tiket untuk memudahkan pengunjung melihat kembali detail pemesanan hanya dengan memasukkan kode booking.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Teknologi yang Digunakan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+| Komponen | Teknologi |
+| --- | --- |
+| **Framework Backend** | [Laravel 13](https://laravel.com/) (PHP 8.3+) |
+| **Database** | SQLite (default untuk development) / MySQL |
+| **Styling & UI** | [Tailwind CSS v4](https://tailwindcss.com/) |
+| **Asset Bundler** | [Vite](https://vitejs.dev/) |
+| **Testing** | [PHPUnit 12](https://phpunit.de/) |
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Prasyarat Sistem
 
-## Agentic Development
+Sebelum menjalankan proyek, pastikan perangkat Anda telah terinstal:
+- PHP >= 8.3 (dengan ekstensi `pdo`, `sqlite3` atau `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`)
+- [Composer](https://getcomposer.org/)
+- [Node.js](https://nodejs.org/) (versi LTS disarankan, minimal v18+) & NPM
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
 
+## Panduan Instalasi
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek di komputer lokal:
+
+### 1. Kloning Repositori
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/aldwrnnnnn/balihfilm.git
+cd balihfilm
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Instal Dependensi PHP
+```bash
+composer install
+```
 
-## Contributing
+### 3. Konfigurasi Environment
+Salin file konfigurasi `.env.example` menjadi `.env`:
+```bash
+cp .env.example .env
+```
+*(Pada sistem operasi Windows PowerShell, gunakan `copy .env.example .env`)*
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Lalu buat kunci aplikasi (*application key*):
+```bash
+php artisan key:generate
+```
 
-## Code of Conduct
+### 4. Migrasi Database dan Seeder
+Jalankan migrasi tabel dan isi data awal (film, studio, jadwal tayang, F&B, dan contoh transaksi):
+```bash
+php artisan migrate --seed
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 5. Instal Dependensi Frontend & Kompilasi Aset
+```bash
+npm install
+npm run build
+```
+*(Untuk mode pengembangan dengan hot reload, jalankan `npm run dev`)*
 
-## Security Vulnerabilities
+### 6. Jalankan Server Lokal
+```bash
+php artisan serve
+```
+Akses aplikasi melalui browser di: `http://127.0.0.1:8000`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## Pengujian (Testing)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Proyek ini telah dilengkapi automated test suite menggunakan PHPUnit untuk memastikan validasi alur pemesanan, ketersediaan kursi, dan keamanan transaksi berjalan dengan benar:
+
+```bash
+php artisan test
+```
+
+Cakupan pengujian meliputi:
+- Pemuatan halaman katalog dan detail film.
+- Tampilan denah kursi dan daftar menu F&B.
+- Alur pemesanan tiket, validasi email/telepon, dan penerbitan barcode.
+- Pencegahan pemesanan kursi yang sudah dipesan orang lain (*double-booking prevention*).
+- Validasi format dan batas maksimal pemesanan kursi.
+- Pencegahan pemesanan untuk jadwal tayang yang sudah lewat.
+- Fitur pelacakan tiket berdasarkan kode pemesanan.
+
+---
+
+## Lisensi
+
+Proyek ini dirilis di bawah lisensi [MIT License](LICENSE).
